@@ -1,7 +1,7 @@
 import Display from "./components/Display";
 import ButtonGrid from "./components/ButtonGrid";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -26,7 +26,6 @@ function App() {
     "2",
     "3",
     "0",
-    ".",
   ];
   function handleClick(label) {
     if (label === "A/C") {
@@ -60,6 +59,8 @@ function App() {
       }
 
       setCurrentInput(String(result));
+      setPreviousInput(null);
+      setOperator(null);
     } else {
       if (currentInput === "0") {
         setCurrentInput(label);
@@ -69,9 +70,30 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key >= "0" && e.key <= "9") handleClick(e.key);
+      else if (e.key === "+") handleClick("+");
+      else if (e.key === "-") handleClick("-");
+      else if (e.key === "*") handleClick("x");
+      else if (e.key === "/") handleClick("÷");
+      else if (e.key === "Enter") handleClick("=");
+      else if (e.key === "Escape") handleClick("A/C");
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentInput, previousInput, operator]);
+
   return (
     <div className="calculator">
-      <Display value={currentInput} />
+      <Display
+        value={
+          operator
+            ? `${previousInput} ${operator} ${currentInput}`
+            : currentInput
+        }
+      />
       <ButtonGrid buttons={buttons} onClick={handleClick} />
     </div>
   );

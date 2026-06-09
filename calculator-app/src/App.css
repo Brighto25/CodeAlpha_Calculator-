@@ -44,13 +44,41 @@ button {
   border-radius: 12px;
   font-size: 1.2rem;
   cursor: pointer;
-  background-color: #e94560;
   color: white;
   transition:
     background-color 0.2s,
     transform 0.1s;
 }
 
+.btn-number {
+  background-color: #333333;
+}
+
+.btn-operator {
+  background-color: #ff9500;
+}
+
+.btn-equals {
+  background-color: #ff9500;
+}z
+
+.btn-clear {
+  background-color: #a5a5a5;
+  color: black;
+}
+
+.btn-number:hover {
+  background-color: #4a4a4a;
+}
+.btn-operator:hover {
+  background-color: #e6870a;
+}
+.btn-equals:hover {
+  background-color: #e6870a;
+}
+.btn-clear:hover {
+  background-color: #909090;
+}
 button:hover {
   background-color: #c73652;
   transform: scale(1.05);
