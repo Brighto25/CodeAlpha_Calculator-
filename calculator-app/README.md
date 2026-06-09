@@ -1,4 +1,4 @@
-<img width="1919" height="1029" alt="image_2026-06-09_21-43-00" src="https://github.com/user-attachments/assets/4245b3d8-278d-4715-9f82-69b3ec592a97" />
+
 <img width="1919" height="1029" alt="image_2026-06-09_21-43-00" src="https://github.com/user-attachments/assets/d74d17e0-989f-4189-83bd-b1feb1e21d43" />
 # 🧮 Calculator
 
